@@ -1,0 +1,2 @@
+# Password files. Do not expose to version controle
+*.passwd
