@@ -1,15 +1,41 @@
-
-# MQTT brocker
-mqtt:
-  image: eclipse-mosquitto
-  container_name: mosquitto
-  restart: always
-  ports:
-    - 1883:1883
-    - 9001:9001
-  volumes:
-    - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-    - ./mosquitto/mosquitto.passwd:/etc/mosquitto/mosquitto.passwd
-    - ./mosquitto/data:/mosquitto/data/
-    # - /var/log/mosquitto.log:/mosquitto/log/mosquitto.log
-    - ./mosquitto/log:/mosquitto/log/
+# Home automation docker setup
+version: "3.3"
+services:
+  # MQTT brocker
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt
+    restart: always
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/mosquitto.passwd:/etc/mosquitto/mosquitto.passwd
+      - ./mosquitto/data:/mosquitto/data/
+      - ./mosquitto/log:/mosquitto/log/
+  
+  # Zigbee2MQTT
+  
+  # Home assistant
+  assistant:
+    image: homeassistant/raspberrypi3-homeassistant:0.99.2
+    container_name: "hass"
+    restart: always
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8123"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 6
+    network_mode: host
+    ports:
+      - 8123:8123
+      - 8943:8943
+    environment:
+      - "TZ=Europe/Amsterdam"
+    volumes:
+      - "./homeassistant:/config"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+    depends_on:
+      - mqtt
