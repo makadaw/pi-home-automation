@@ -16,7 +16,24 @@ services:
       - ./mosquitto/log:/mosquitto/log/
   
   # Zigbee2MQTT
-  
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - ./zigbee2mqtt/data:/app/data
+    devices:
+      # CC251
+      #- /dev/ttyUSB_cc2531:/dev/ttyACM0
+      # TODO Pass by id
+      - /dev/ttyACM0:/dev/ttyACM0
+      # CC2530 / GBAN GB2530S
+      #- /dev/ttyUSB_cc2530:/dev/ttyACM0
+    restart: always
+    environment:
+      - "TZ=Europe/Amsterdam"
+    depends_on:
+      - mqtt
+ 
   # Home assistant
   assistant:
     image: homeassistant/raspberrypi3-homeassistant:0.99.2

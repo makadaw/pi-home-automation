@@ -1,17 +1,19 @@
-# MQTT settings
+permit_join: true
+
 mqtt:
-  # MQTT base topic for zigbee2mqtt MQTT messages
   base_topic: zigbee2mqtt
-  # MQTT server 
-  server: 'mqtt://mosquitto'
-  # MQTT server authentication, uncomment if required:
+  server: 'mqtt://mqtt:1883'
   user: homeautomation
-  password: homeautomation 
-  # Optional: MQTT client ID
-  client_id: 'Z2M HUB'
+  password: homeautomation
+  client_id: Z2M HUB
 
 serial:
-  # Required: location of CC2531 USB sniffer
   port: /dev/ttyACM0
-  # Optional: disable LED of CC2531 USB sniffer
   disable_led: false
+
+devices:
+  '0x000d6ffffe4a6aaa':
+    friendly_name: 'tradfri_button'
+    retain: true
+    qos: 1
+ 
