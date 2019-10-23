@@ -8,20 +8,41 @@ homeassistant:
 default_config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
+http:
+  # For extra security set this to only accept connections on localhost if NGINX is on the same machine
+  # Update this line to be your domain
+  # base_url: https://example.com
+  # TODO replace with host address
+  base_url: 192.168.2.144
+  use_x_forwarded_for: true
+  # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
+  # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
+  trusted_proxies: 
+    - 127.0.0.1
+    - ::1
+  server_host: 0.0.0.0
+  server_port: 8123
 
 # Text to speech
 tts:
   - platform: google_translate
 
+# MQTT broker
 mqtt:
   broker: 127.0.0.1
   port: 1883
   client_id: home-assistant
   username: !secret MQTT_username
   password: !secret MQTT_password
+  discovery: true
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+
+group: !include_dir_merge_named groups
+automation: !include_dir_merge_list automation 
+script: !include_dir_merge_named scripts

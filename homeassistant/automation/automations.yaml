@@ -1,0 +1,28 @@
+- alias: Tradfri short click
+  trigger:
+    platform: state
+    entity_id: sensor.tradfri_button_action 
+    to: 'toggle'
+  action:
+    service: light.toggle
+    data:
+      entity_id: group.bedroom_lights
+      transition: 1
+
+- alias: Tradfri bright up
+  trigger:
+    platform: state
+    entity_id: sensor.tradfri_button_action
+    to: brightness_up_click
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.bedroom_lights
+      brightness_pct: >
+        {% set brightness_pct = (state_attr('group.bedroom_lights', 'brightness') / 2.55) | int | round(0) %}
+        {% set new_brightness = brightness_pct + 10 %}
+        {% if new_brightness < 100 %}
+          {{ new_brightness }}
+        {% else %}
+          100
+        {% endif %} 
