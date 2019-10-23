@@ -1,19 +1,19 @@
-permit_join: true
-
+permit_join: false
+homeassistant: true
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://mqtt:1883'
   user: homeautomation
   password: homeautomation
   client_id: Z2M HUB
-
 serial:
   port: /dev/ttyACM0
-  disable_led: false
-
+  disable_led: true
 devices:
   '0x000d6ffffe4a6aaa':
-    friendly_name: 'tradfri_button'
+    friendly_name: tradfri_button
     retain: true
     qos: 1
- 
+  '0x000d6ffffe12afe4':
+    friendly_name: 'tradfri_led'
+    retain: true
