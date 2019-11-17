@@ -1,0 +1,11 @@
+earendil:
+  description: Light controll script
+  fields:
+    entity_id:
+      description: Entity id
+    operation:
+      description: "Script operation, possible options [toggle, turn_on, dim_up, dim_down]"
+      example: toggle
+    level:
+      description: Dim level step
+      example: 5

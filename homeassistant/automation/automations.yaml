@@ -4,10 +4,10 @@
     entity_id: sensor.tradfri_button_action 
     to: 'toggle'
   action:
-    service: light.toggle
+    service: python_script.earendil 
     data:
-      entity_id: group.bedroom_lights
-      transition: 1
+      entity_id: light.bedroom_lights
+      operation: toggle
 
 - alias: Tradfri bright up
   trigger:
@@ -15,14 +15,18 @@
     entity_id: sensor.tradfri_button_action
     to: brightness_up_click
   action:
-    service: light.turn_on
-    data_template:
-      entity_id: group.bedroom_lights
-      brightness_pct: >
-        {% set brightness_pct = (state_attr('group.bedroom_lights', 'brightness') / 2.55) | int | round(0) %}
-        {% set new_brightness = brightness_pct + 10 %}
-        {% if new_brightness < 100 %}
-          {{ new_brightness }}
-        {% else %}
-          100
-        {% endif %} 
+    service: python_script.earendil
+    data:
+      entity_id: light.bedroom_lights
+      operation: dim_up
+
+- alias: Tradfri bright down
+  trigger:
+    platform: state
+    entity_id: sensor.tradfri_button_action
+    to: brightness_down_click
+  action:
+    service: python_script.earendil
+    data:
+      entity_id: light.bedroom_lights
+      operation: dim_down

@@ -1,5 +1,0 @@
-bedroom_lights:
-  name: "Bedroom Lights"
-  view: true
-  entities:
-    - light.tradfri_led_light

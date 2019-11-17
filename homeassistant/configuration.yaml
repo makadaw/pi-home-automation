@@ -42,7 +42,8 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
-
-group: !include_dir_merge_named groups
+# group: !include_dir_merge_named groups
+light: !include lights.yaml
 automation: !include_dir_merge_list automation 
 script: !include_dir_merge_named scripts
+python_script:
