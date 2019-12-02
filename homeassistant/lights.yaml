@@ -1,7 +1,5 @@
-#bedroom_lights:
 - platform: group
   name: "Bedroom Lights"
-#    view: true
   entities:
     - light.tradfri_led_light
 

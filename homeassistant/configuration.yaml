@@ -4,6 +4,8 @@ homeassistant:
   longitude: !secret homeassistant_longitude
   elevation: !secret homeassistant_elevation
   time_zone: Europe/Amsterdam
+  
+  packages: !include_dir_named packages
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -44,6 +46,6 @@ mqtt:
 
 # group: !include_dir_merge_named groups
 light: !include lights.yaml
-automation: !include_dir_merge_list automation 
+# automation: !include_dir_merge_list automation 
 script: !include_dir_merge_named scripts
 python_script:
