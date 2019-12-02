@@ -15,5 +15,11 @@ devices:
     retain: true
     qos: 1
   '0x000d6ffffe12afe4':
-    friendly_name: 'tradfri_led'
+    friendly_name: tradfri_led
+    retain: true
+  '0xccccccfffe90e011':
+    friendly_name: 'tradfri_led_600_1'
+    retain: true
+  '0xccccccfffe9e8300':
+    friendly_name: 'tradfri_led_600_2'
     retain: true

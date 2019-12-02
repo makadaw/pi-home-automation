@@ -1,5 +1,10 @@
 - platform: group
   name: "Bedroom Lights"
   entities:
-    - light.tradfri_led_light
+    - light.tradfri_led_600_1_light
+    - light.tradfri_led_600_2_light
 
+- platform: group
+  name: "Cabinet"
+  entities:
+    - light.tradfri_led_light
