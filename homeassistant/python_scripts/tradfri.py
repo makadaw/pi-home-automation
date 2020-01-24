@@ -24,15 +24,19 @@ def max(a,b):
   return a if a > b else b
 
 if entity_id is not None:
+  # Turn on ligts
   if op == OP_TURN_ON:
     data = {"entity_id": entity_id, "brightness": 255, "transition": transition}
     hass.services.call("light", "turn_on", data)
+  # Turn off lights
   elif op == OP_TURN_OFF:
     data = {"entity_id": entity_id, "transition": transition}
     hass.services.call("light", "turn_off", data)
+  # On or off depend on the cirrent state
   elif op == OP_TOGGLE:
     data = {"entity_id": entity_id, "brightness": 255, "transition": transition}
     hass.services.call("light", "toggle", data, False)
+  # Change brightness level
   elif op == OP_DIM_UP or op == OP_DIM_DOWN:
     # Get current brightness value
     states = hass.states.get(entity_id)
@@ -42,6 +46,7 @@ if entity_id is not None:
     logger.info("Set light brightness level to {}".format(brightness))
     data = {"entity_id": entity_id, "brightness": round(brightness * 2.55), "transition": transition}
     hass.services.call("light", "turn_on", data, False)
+  # Brightnes hold
   elif op == OP_DIM_HOLD_UP:
     # Long press actions
     exit_service = False

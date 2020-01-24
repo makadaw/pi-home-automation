@@ -6,7 +6,7 @@ automation:
       entity_id: sensor.tradfri_button_action 
       to: 'toggle'
     action:
-      service: python_script.earendil 
+      service: python_script.tradfri 
       data:
         entity_id: light.bedroom_lights
         operation: toggle
@@ -17,7 +17,7 @@ automation:
       entity_id: sensor.tradfri_button_action 
       to: arrow_right_click
     action:
-      service: python_script.earendil 
+      service: python_script.tradfri 
       data:
         entity_id: light.tradfri_led_600_1_light
         operation: toggle
@@ -28,7 +28,7 @@ automation:
       entity_id: sensor.tradfri_button_action 
       to: arrow_left_click
     action:
-      service: python_script.earendil 
+      service: python_script.tradfri 
       data:
         entity_id: light.tradfri_led_600_2_light
         operation: toggle
@@ -40,21 +40,23 @@ automation:
       entity_id: sensor.tradfri_button_action
       to: brightness_up_click
     action:
-      service: python_script.earendil
+      service: python_script.tradfri
       data:
         entity_id: light.bedroom_lights
         operation: dim_up
-  
+        transition: 0
+  # Short click brigthness/temperature control 
   - alias: Tradfri bright down
     trigger:
       platform: state
       entity_id: sensor.tradfri_button_action
       to: brightness_down_click
     action:
-      service: python_script.earendil
+      service: python_script.tradfri
       data:
         entity_id: light.bedroom_lights
         operation: dim_down
+        transition: 0
   
   # Dim brigthness up/down with long press
   - id: tradfri_brigthness_up_hold
@@ -70,12 +72,12 @@ automation:
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.light_brightness
-      - service: python_script.earendil
+      - service: python_script.tradfri
         data:
           entity_id: light.bedroom_lights
           operation: dim_hold_up
           input_boolean: input_boolean.light_brightness
-          level: 5
+          level: 10
   - id: tradfri_brigthness_down_hold
     alias: Tradfri bright down - hold
     trigger:
@@ -89,12 +91,12 @@ automation:
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.light_brightness
-      - service: python_script.earendil
+      - service: python_script.tradfri
         data:
           entity_id: light.bedroom_lights
           operation: dim_hold_up
           input_boolean: input_boolean.light_brightness
-          level: -5
+          level: -10
   
   - id: tradfri_brigthness_dim_off
     alias: Tradfri bright dim released

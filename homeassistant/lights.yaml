@@ -5,6 +5,6 @@
     - light.tradfri_led_600_2_light
 
 - platform: group
-  name: "Cabinet"
+  name: "Hobby room"
   entities:
     - light.tradfri_led_light
