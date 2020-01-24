@@ -57,6 +57,20 @@ automation:
         entity_id: light.bedroom_lights
         operation: dim_down
         transition: 0
+
+  # Short click brigthness/temperature control 
+  - alias: Tradfri bright down
+    trigger:
+      platform: state
+      entity_id: sensor.tradfri_button_action
+      to: toggle_hold 
+    action:
+      service: python_script.tradfri
+      data:
+        entity_id: light.bedroom_lights
+        operation: turn_on
+        rgb_color: [255, 218, 109]
+        transition: 0
   
   # Dim brigthness up/down with long press
   - id: tradfri_brigthness_up_hold

@@ -3,6 +3,8 @@
 ARG_ENTITY_ID = "entity_id"
 ARG_OPERATION = "operation"
 ARG_LEVEL = "level"
+ARG_TRANSITION = "transition"
+ARG_RGB_COLOR = "rgb_color"
 
 OP_TOGGLE = "toggle" # Default operation
 OP_TURN_ON = "turn_on"
@@ -12,10 +14,10 @@ OP_DIM_DOWN = "dim_down"
 OP_DIM_HOLD_UP = "dim_hold_up"
 
 # Get params
-entity_id = data.get("entity_id")
+entity_id = data.get(ARG_ENTITY_ID)
 op = data.get(ARG_OPERATION, OP_TOGGLE)
 level = data.get(ARG_LEVEL, 10)
-transition = data.get("transition", 1)
+transition = data.get(ARG_TRANSITION, 1)
 
 def min(a,b):
   return a if a < b else b
@@ -26,7 +28,10 @@ def max(a,b):
 if entity_id is not None:
   # Turn on ligts
   if op == OP_TURN_ON:
+    rgb = data.get(ARG_RGB_COLOR)
     data = {"entity_id": entity_id, "brightness": 255, "transition": transition}
+    if rgb is not None: # Set RGB only if provided
+      data["rgb_color"] = rgb
     hass.services.call("light", "turn_on", data)
   # Turn off lights
   elif op == OP_TURN_OFF:
