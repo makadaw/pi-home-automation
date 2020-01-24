@@ -11,6 +11,28 @@ automation:
         entity_id: light.bedroom_lights
         operation: toggle
   
+  - alias: Tradfri brigthness click
+    trigger:
+      platform: state
+      entity_id: sensor.tradfri_button_action 
+      to: arrow_right_click
+    action:
+      service: python_script.earendil 
+      data:
+        entity_id: light.tradfri_led_600_1_light
+        operation: toggle
+ 
+  - alias: Tradfri brigthness click
+    trigger:
+      platform: state
+      entity_id: sensor.tradfri_button_action 
+      to: arrow_left_click
+    action:
+      service: python_script.earendil 
+      data:
+        entity_id: light.tradfri_led_600_2_light
+        operation: toggle
+  
   # Short clicks brigthness/temperature control
   - alias: Tradfri bright up
     trigger:
