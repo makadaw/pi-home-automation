@@ -11,7 +11,7 @@ OP_TURN_ON = "turn_on"
 OP_TURN_OFF = "turn_off"
 OP_DIM_UP = "dim_up"
 OP_DIM_DOWN = "dim_down"
-OP_DIM_HOLD_UP = "dim_hold_up"
+OP_DIM_BUTTON_HOLD = "dim_button_hold"
 
 # Get params
 entity_id = data.get(ARG_ENTITY_ID)
@@ -45,14 +45,14 @@ if entity_id is not None:
   elif op == OP_DIM_UP or op == OP_DIM_DOWN:
     # Get current brightness value
     states = hass.states.get(entity_id)
-    current = round((states.attributes.get('brightness') or 0) / 2.55)
-    brightness = min(current+level, 100) if op == OP_DIM_UP else max(current-level, 0)
+    current = (states.attributes.get('brightness') or 0)
+    brightness = min(current+level, 255) if op == OP_DIM_UP else max(current-level, 0)
   
     logger.info("Set light brightness level to {}".format(brightness))
-    data = {"entity_id": entity_id, "brightness": round(brightness * 2.55), "transition": transition}
+    data = {"entity_id": entity_id, "brightness": brightness, "transition": transition}
     hass.services.call("light", "turn_on", data, False)
   # Brightnes hold
-  elif op == OP_DIM_HOLD_UP:
+  elif op == OP_DIM_BUTTON_HOLD:
     # Long press actions
     exit_service = False
     attribute_id = data.get("light_attribute", "brightness")

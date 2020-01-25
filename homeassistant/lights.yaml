@@ -1,5 +1,5 @@
 - platform: group
-  name: "Bedroom Lights"
+  name: "Master Bedroom"
   entities:
     - light.tradfri_led_600_1_light
     - light.tradfri_led_600_2_light

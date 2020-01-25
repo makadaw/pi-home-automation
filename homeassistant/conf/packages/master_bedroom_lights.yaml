@@ -8,7 +8,7 @@ automation:
     action:
       service: python_script.tradfri 
       data:
-        entity_id: light.bedroom_lights
+        entity_id: light.master_bedroom
         operation: toggle
   
   - alias: Tradfri brigthness click
@@ -42,7 +42,7 @@ automation:
     action:
       service: python_script.tradfri
       data:
-        entity_id: light.bedroom_lights
+        entity_id: light.master_bedroom
         operation: dim_up
         transition: 0
   # Short click brigthness/temperature control 
@@ -54,7 +54,7 @@ automation:
     action:
       service: python_script.tradfri
       data:
-        entity_id: light.bedroom_lights
+        entity_id: light.master_bedroom
         operation: dim_down
         transition: 0
 
@@ -67,7 +67,7 @@ automation:
     action:
       service: python_script.tradfri
       data:
-        entity_id: light.bedroom_lights
+        entity_id: light.master_bedroom
         operation: turn_on
         rgb_color: [255, 218, 109]
         transition: 0
@@ -81,15 +81,15 @@ automation:
         to: brightness_up_hold
     condition:
       - condition: state
-        entity_id: light.bedroom_lights
+        entity_id: light.master_bedroom
         state: "on"
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.light_brightness
       - service: python_script.tradfri
         data:
-          entity_id: light.bedroom_lights
-          operation: dim_hold_up
+          entity_id: light.master_bedroom
+          operation: dim_button_hold
           input_boolean: input_boolean.light_brightness
           level: 10
   - id: tradfri_brigthness_down_hold
@@ -100,15 +100,15 @@ automation:
         to: brightness_down_hold
     condition:
       - condition: state
-        entity_id: light.bedroom_lights
+        entity_id: light.master_bedroom
         state: "on"
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.light_brightness
       - service: python_script.tradfri
         data:
-          entity_id: light.bedroom_lights
-          operation: dim_hold_up
+          entity_id: light.master_bedroom
+          operation: dim_button_hold 
           input_boolean: input_boolean.light_brightness
           level: -10
   
@@ -129,7 +129,7 @@ automation:
           entity_id: input_boolean.light_brightness
           state: "on"
         - condition: state
-          entity_id: light.bedroom_lights
+          entity_id: light.master_bedroom
           state: "on"
     action:
       - service: input_boolean.turn_off
