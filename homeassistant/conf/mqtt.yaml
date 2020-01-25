@@ -1,0 +1,14 @@
+---
+broker: 127.0.0.1
+port: 1883
+client_id: home-assistant
+username: !secret MQTT_username
+password: !secret MQTT_password
+discovery: true
+birth_message:
+  topic: 'hass/status'
+  payload: 'online'
+will_message:
+  topic: 'hass/status'
+  payload: 'offline'
+
