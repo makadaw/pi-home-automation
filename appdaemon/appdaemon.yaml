@@ -1,0 +1,36 @@
+api:
+
+appdaemon:
+  total_threads: 10
+  api_key: !secret api_key
+  missing_app_warnings: 1
+  # Turn on in non development stage
+  #production_mode: true
+
+  latitude: !secret base_latitude
+  longitude: !secret base_longitude
+  elevation: !secret base_elevation
+  time_zone: !secret base_time_zone
+
+  plugins:
+    HASS:
+      type: hass
+      namespace: hass
+      ha_url: !secret ha_url
+      token: !secret ha_token
+    MQTT:
+      type: mqtt
+      namespace: mqtt
+      client_host: mqtt
+      client_id: appdaemon
+      client_user: !secret mqtt_user
+      client_password: !secret mqtt_password
+      client_topics: NONE # Do not susbscribe on topics
+
+#  portainer_password: !secret portainer_password
+#  portainer_username: !secret portainer_username
+
+http:
+  url: http://127.0.0.1:5051
+admin:
+  title: AppDaemon

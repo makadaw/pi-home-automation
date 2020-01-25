@@ -33,6 +33,24 @@ services:
       - "TZ=Europe/Amsterdam"
     depends_on:
       - mqtt
+
+  # App Daemon
+  appdaemon:
+    container_name: appdaemon
+    environment:
+      EXTRA_CMD: -D INFO
+    image: appdaemon:4.0.1
+    ports:
+      # TODO use "127.0.0.1:5051:5051" for access only internaly
+      - "5051:5051"
+    restart: unless-stopped
+    environment:
+      - "TZ=Europe/Amsterdam"
+    depends_on:
+      - assistant
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./appdaemon:/conf
  
   # Home assistant
   assistant:
