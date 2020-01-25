@@ -3,7 +3,7 @@ homeassistant:
   latitude: !secret homeassistant_latitude
   longitude: !secret homeassistant_longitude
   elevation: !secret homeassistant_elevation
-  time_zone: Europe/Amsterdam
+  time_zone: !secret homeassistant_time_zone
   
   packages: !include_dir_named packages
 # Configure a default setup of Home Assistant (frontend, api, etc)
