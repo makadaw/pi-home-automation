@@ -1,0 +1,21 @@
+title: My Home
+views:
+  - badges:
+      - binary_sensor.updater
+      - person.admin
+      - sensor.tradfri_button_action
+      - sensor.tradfri_button_battery
+      - sensor.tradfri_button_linkquality
+      - sensor.tradfri_led_linkquality
+      - sun.sun
+    cards:
+      - entity: light.master_bedroom
+        name: Master Bedroom
+        type: light
+      - entity: light.hobby_room
+        type: light
+      - entity: weather.home
+        type: weather-forecast
+    path: default_view
+    title: Home
+

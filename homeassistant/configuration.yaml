@@ -2,14 +2,18 @@ homeassistant: !include conf/homeassistant.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
 http: !include conf/http.yaml
-# Text to speech
-tts:
-  - platform: google_translate
 
 # Integrations
 mqtt: !include conf/mqtt.yaml
 group: !include_dir_merge_named conf/groups
 light: !include conf/lights.yaml
 python_script:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+# Interface
+lovelace:
+  mode: yaml
