@@ -1,6 +1,38 @@
-title: My Home
+title: Vlinder wooning
+
+# Anchors
+master-bedroom-lights: &master-bedroom-lights
+  entity: light.master_bedroom
+  type: light
+
+hobby-room-lights: &hobby-room-lights
+  entity: light.hobby_room
+  type: light
+
+# Views configuration
+
 views:
-  - badges:
+  - path: default_view 
+    title: Main
+    cards:
+      - type: entities
+        title: Lights
+        entities:
+          - light.master_bedroom
+          - light.hobby_room
+      - entity: weather.home
+        type: weather-forecast
+  - path: master_bedroom
+    icon: mdi:bed-king
+    cards:
+      - *master-bedroom-lights
+  - path: hobby
+    icon: mdi:desktop-mac
+    cards:
+      - *hobby-room-lights
+  - path: system_state
+    icon: mdi:settings
+    badges:
       - binary_sensor.updater
       - person.admin
       - sensor.tradfri_button_action
@@ -8,14 +40,3 @@ views:
       - sensor.tradfri_button_linkquality
       - sensor.tradfri_led_linkquality
       - sun.sun
-    cards:
-      - entity: light.master_bedroom
-        name: Master Bedroom
-        type: light
-      - entity: light.hobby_room
-        type: light
-      - entity: weather.home
-        type: weather-forecast
-    path: default_view
-    title: Home
-
