@@ -5,5 +5,5 @@ longitude: !secret homeassistant_longitude
 elevation: !secret homeassistant_elevation
 time_zone: !secret homeassistant_time_zone
 
-packages: !include_dir_named conf/packages
+packages: !include_dir_named packages
 
