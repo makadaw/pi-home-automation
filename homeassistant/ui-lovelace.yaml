@@ -26,6 +26,10 @@ views:
     icon: mdi:bed-king
     cards:
       - *master-bedroom-lights
+  - path: hobby
+    icon: mdi:desktop-mac
+    cards:
+      - *hobby-room-lights
       - type: vertical-stack
         cards:
         - type: horizontal-stack
@@ -47,10 +51,6 @@ views:
             name: Pressure
             graph: line
             unit: 'hPa'
-  - path: hobby
-    icon: mdi:desktop-mac
-    cards:
-      - *hobby-room-lights
   - path: system_state
     icon: mdi:settings
     badges:
