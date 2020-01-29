@@ -3,8 +3,8 @@ homeassistant: true
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://mqtt:1883'
-  user: homeautomation
-  password: homeautomation
+  user: '!secret user'
+  password: '!secret password'
   client_id: Z2M HUB
 serial:
   port: /dev/ttyACM0
@@ -18,8 +18,12 @@ devices:
     friendly_name: tradfri_led
     retain: true
   '0xccccccfffe90e011':
-    friendly_name: 'tradfri_led_600_1'
+    friendly_name: tradfri_led_600_1
     retain: true
   '0xccccccfffe9e8300':
-    friendly_name: 'tradfri_led_600_2'
+    friendly_name: tradfri_led_600_2
     retain: true
+  '0x00158d000444604a':
+    friendly_name: xiaomi_aqara_th_1
+    retain: true
+    debounce: 1
