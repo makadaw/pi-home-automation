@@ -26,6 +26,27 @@ views:
     icon: mdi:bed-king
     cards:
       - *master-bedroom-lights
+      - type: vertical-stack
+        cards:
+        - type: horizontal-stack
+          cards:
+          - type: sensor
+            entity: sensor.xiaomi_aqara_th_1_temperature
+            name: Temperature
+            graph: line
+            unit: '°C'
+        - type: horizontal-stack
+          cards:
+          - type: sensor
+            entity: sensor.xiaomi_aqara_th_1_humidity
+            name: Humidity
+            graph: line
+            unit: '%'
+          - type: sensor
+            entity: sensor.xiaomi_aqara_th_1_pressure
+            name: Pressure
+            graph: line
+            unit: 'hPa'
   - path: hobby
     icon: mdi:desktop-mac
     cards:
