@@ -1,3 +1,14 @@
 # Zigbee2MQTT configuration
 
-As I didn't find a way to pass username/password of MQTT broker outside, there are just a plain text.
+[Zigbee 2 MQTT](https://www.zigbee2mqtt.io/) broker.
+
+# Setup
+
+Create a file `data/secret.yaml`
+
+```
+user: <username> 
+password: <password>
+
+```
+
