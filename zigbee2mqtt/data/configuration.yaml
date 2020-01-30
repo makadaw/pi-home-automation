@@ -27,3 +27,13 @@ devices:
     friendly_name: xiaomi_aqara_th_1
     retain: true
     debounce: 1
+  '0x00124b00014908de':
+    friendly_name: '0x00124b00014908de'
+groups:
+  '1':
+    friendly_name: bedroom_lights
+    retain: true
+    optimistic: true
+    devices:
+      - '0xccccccfffe90e011'
+      - '0xccccccfffe9e8300'

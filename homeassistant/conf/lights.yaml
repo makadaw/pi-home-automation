@@ -1,8 +1,14 @@
-- platform: group
+
+# Zigbee Groups are not autodiscoverable right now
+- platform: mqtt
   name: "Master Bedroom"
-  entities:
-    - light.tradfri_led_600_1_light
-    - light.tradfri_led_600_2_light
+  availability_topic: "zigbee2mqtt/bridge/state"
+  command_topic: "zigbee2mqtt/bedroom_lights/set"
+  state_topic: "zigbee2mqtt/bedroom_lights"
+  brightness: true
+  xy: true
+  retain: true
+  schema: "json"
 
 - platform: group
   name: "Hobby room"

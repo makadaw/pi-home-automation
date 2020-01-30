@@ -9,6 +9,5 @@ Create a file `data/secret.yaml`
 ```
 user: <username> 
 password: <password>
-
 ```
 
