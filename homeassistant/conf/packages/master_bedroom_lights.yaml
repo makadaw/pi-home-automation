@@ -1,146 +1,22 @@
 automation:
-  # One click actions
-  - alias: Tradfri short click
-    trigger:
-      platform: state
-      entity_id: sensor.tradfri_button_action 
-      to: 'toggle'
-    action:
-      service: python_script.tradfri 
-      data:
-        entity_id: light.master_bedroom
-        operation: toggle
   
-  - alias: Tradfri brigthness click
+  - alias: Master bedroom switch right click 
     trigger:
       platform: state
       entity_id: sensor.tradfri_button_action 
       to: arrow_right_click
     action:
-      service: python_script.tradfri 
+      service: light.toggle
       data:
         entity_id: light.tradfri_led_600_1_light
-        operation: toggle
  
-  - alias: Tradfri brigthness click
+  - alias: Master bedroom switch left click 
     trigger:
       platform: state
       entity_id: sensor.tradfri_button_action 
       to: arrow_left_click
     action:
-      service: python_script.tradfri 
+      service: light.toggle
       data:
         entity_id: light.tradfri_led_600_2_light
-        operation: toggle
   
-  # Short clicks brigthness/temperature control
-  - alias: Tradfri bright up
-    trigger:
-      platform: state
-      entity_id: sensor.tradfri_button_action
-      to: brightness_up_click
-    action:
-      service: python_script.tradfri
-      data:
-        entity_id: light.master_bedroom
-        operation: dim_up
-        transition: 0
-  # Short click brigthness/temperature control 
-  - alias: Tradfri bright down
-    trigger:
-      platform: state
-      entity_id: sensor.tradfri_button_action
-      to: brightness_down_click
-    action:
-      service: python_script.tradfri
-      data:
-        entity_id: light.master_bedroom
-        operation: dim_down
-        transition: 0
-
-  # Short click brigthness/temperature control 
-  - alias: Tradfri bright down
-    trigger:
-      platform: state
-      entity_id: sensor.tradfri_button_action
-      to: toggle_hold 
-    action:
-      service: python_script.tradfri
-      data:
-        entity_id: light.master_bedroom
-        operation: turn_on
-        rgb_color: [255, 218, 109]
-        transition: 0
-  
-  # Dim brigthness up/down with long press
-  - id: tradfri_brigthness_up_hold
-    alias: Tradfri bright up - hold
-    trigger:
-      - platform: state
-        entity_id: sensor.tradfri_button_action
-        to: brightness_up_hold
-    condition:
-      - condition: state
-        entity_id: light.master_bedroom
-        state: "on"
-    action:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.light_brightness
-      - service: python_script.tradfri
-        data:
-          entity_id: light.master_bedroom
-          operation: dim_button_hold
-          input_boolean: input_boolean.light_brightness
-          level: 10
-  - id: tradfri_brigthness_down_hold
-    alias: Tradfri bright down - hold
-    trigger:
-      - platform: state
-        entity_id: sensor.tradfri_button_action
-        to: brightness_down_hold
-    condition:
-      - condition: state
-        entity_id: light.master_bedroom
-        state: "on"
-    action:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.light_brightness
-      - service: python_script.tradfri
-        data:
-          entity_id: light.master_bedroom
-          operation: dim_button_hold 
-          input_boolean: input_boolean.light_brightness
-          level: -10
-  
-  - id: tradfri_brigthness_dim_off
-    alias: Tradfri bright dim released
-    initial_state: "on"
-    trigger:
-      - platform: state
-        entity_id: sensor.tradfri_button_action
-        to: brightness_up_release
-      - platform: state
-        entity_id: sensor.tradfri_button_action
-        to: brightness_down_release
-    condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.light_brightness
-          state: "on"
-        - condition: state
-          entity_id: light.master_bedroom
-          state: "on"
-    action:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.light_brightness
-
-
-# Inputs to control the dim up/down and warm up/down smoothly
-input_boolean:
-  light_brightness:
-    name: Light brigthness
-    initial: off
-  light_color_temp:
-    name: Light color temperature
-    initial: off
