@@ -1,5 +1,5 @@
 master_bedroom_lights_control:
-  module: tradfri
+  module: tradfri_control
   class: TradfriControl
   
   remote: sensor.tradfri_button_action 
