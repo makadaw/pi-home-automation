@@ -13,4 +13,4 @@
 - platform: group
   name: "Hobby room"
   entities:
-    - light.tradfri_led_light
+    - light.tradfri_led_e27_white_1000_01_light

@@ -3,20 +3,19 @@ automation:
   - alias: Master bedroom switch right click 
     trigger:
       platform: state
-      entity_id: sensor.tradfri_button_action 
+      entity_id: sensor.tradfri_button_01_action 
       to: arrow_right_click
     action:
       service: light.toggle
       data:
-        entity_id: light.tradfri_led_600_1_light
+        entity_id: light.tradfri_led_e27_color_600_01_light
  
   - alias: Master bedroom switch left click 
     trigger:
       platform: state
-      entity_id: sensor.tradfri_button_action 
+      entity_id: sensor.tradfri_button_01_action 
       to: arrow_left_click
     action:
       service: light.toggle
       data:
-        entity_id: light.tradfri_led_600_2_light
-  
+        entity_id: light.tradfri_led_e27_color_600_02_light

@@ -56,10 +56,10 @@ views:
     badges:
       - binary_sensor.updater
       - person.admin
-      - sensor.tradfri_button_action
-      - sensor.tradfri_button_battery
-      - sensor.tradfri_button_linkquality
-      - sensor.tradfri_led_linkquality
+      - sensor.tradfri_button_01_action
+      - sensor.tradfri_button_01_battery
+      - sensor.tradfri_button_01_linkquality
+      - sensor.tradfri_led_e27_white_1000_01_linkquality
       - sun.sun
     cards:
       - type: entities
