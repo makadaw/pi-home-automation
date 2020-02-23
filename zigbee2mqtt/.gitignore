@@ -1,3 +1,5 @@
 # Ignore folders used by containers
 data/*
 !data/configuration.yaml
+!data/devices.yaml
+!data/groups.yaml

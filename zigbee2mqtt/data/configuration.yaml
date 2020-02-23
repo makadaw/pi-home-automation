@@ -1,39 +1,26 @@
-permit_join: false
+# Home Assistant integration (MQTT discovery)
 homeassistant: true
+
+# allow new devices to join, keep is false
+permit_join: false
+
+# MQTT settings
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://mqtt:1883'
   user: '!secret user'
   password: '!secret password'
-  client_id: Z2M HUB
+  client_id: 'Z2M HUB'
+
+# Connection to stick
 serial:
   port: /dev/ttyACM0
   disable_led: true
-devices:
-  '0x000d6ffffe4a6aaa':
-    friendly_name: tradfri_button
-    retain: true
-    qos: 1
-  '0x000d6ffffe12afe4':
-    friendly_name: tradfri_led
-    retain: true
-  '0xccccccfffe90e011':
-    friendly_name: tradfri_led_600_1
-    retain: true
-  '0xccccccfffe9e8300':
-    friendly_name: tradfri_led_600_2
-    retain: true
-  '0x00158d000444604a':
-    friendly_name: xiaomi_aqara_th_1
-    retain: true
-    debounce: 1
-  '0x00124b00014908de':
-    friendly_name: '0x00124b00014908de'
-groups:
-  '1':
-    friendly_name: bedroom_lights
-    retain: true
-    optimistic: true
-    devices:
-      - '0xccccccfffe90e011'
-      - '0xccccccfffe9e8300'
+
+# Advanced settings
+advanced:
+  network_key: '!secret network_key'
+
+devices: devices.yaml
+groups: groups.yaml
+

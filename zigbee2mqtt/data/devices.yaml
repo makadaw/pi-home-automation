@@ -1,0 +1,21 @@
+'0x000d6ffffe4a6aaa':
+  friendly_name: tradfri_button_01
+  retain: true
+  qos: 1
+'0xec1bbdfffea8561f':
+  friendly_name: tradfri_button_02
+  retain: true
+  qos: 1
+'0x000d6ffffe12afe4':
+  friendly_name: tradfri_led_e27_white_1000_01
+  retain: true
+'0xccccccfffe9e8300':
+  friendly_name: tradfri_led_e27_color_600_01
+  retain: true
+'0xccccccfffe90e011':
+  friendly_name: tradfri_led_e27_color_600_02
+  retain: true
+'0x00158d000444604a':
+  friendly_name: xiaomi_aqara_th_1
+  retain: true
+  debounce: 1

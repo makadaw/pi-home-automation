@@ -1,0 +1,8 @@
+'2':
+  friendly_name: bedroom_lights
+  retain: true
+  optimistic: true
+  devices:
+    - '0xccccccfffe9e8300'
+    - '0xccccccfffe90e011'
+
