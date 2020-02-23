@@ -15,11 +15,37 @@ views:
   - path: default_view 
     title: Main
     cards:
-      - type: entities
+      - type: horizontal-stack
         title: Lights
-        entities:
-          - light.master_bedroom
-          - light.living_room
+        cards:
+          - type: entity-button
+            entity: light.master_bedroom
+            name: Bedroom
+          - type: entity-button
+            entity: light.tradfri_led_e27_color_600_02_light
+            name: Kate's
+          - type: entity-button
+            entity: light.tradfri_led_e27_color_600_01_light
+            name: Alex's
+          - type: entity-button
+            entity: light.living_room
+      - type: horizontal-stack
+        title: Scenes
+        cards:
+          - type: entity-button
+            entity: scene.romantic
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.romantic
+          - type: entity-button
+            entity: scene.party
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.party
       - entity: weather.home
         type: weather-forecast
   - path: master_bedroom

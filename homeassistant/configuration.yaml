@@ -8,6 +8,7 @@ http: !include conf/http.yaml
 mqtt: !include conf/mqtt.yaml
 group: !include_dir_merge_named conf/groups
 light: !include conf/lights.yaml
+scene: !include conf/scenes.yaml
 python_script:
 
 # Text to speech

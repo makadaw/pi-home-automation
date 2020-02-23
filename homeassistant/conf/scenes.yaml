@@ -1,0 +1,15 @@
+---
+- name: Party
+  entities:
+    light.master_bedroom:
+      state: off
+    light.living_room:
+      state: on
+      brightness: 255
+
+- name: Romantic
+  entities:
+    light.master_bedroom:
+      state: on
+      brightness: 80
+      xy_color: [0.515, 0.281]
