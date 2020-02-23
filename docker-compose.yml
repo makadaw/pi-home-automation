@@ -19,7 +19,7 @@ services:
   # Zigbee2MQTT
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt
+    image: koenkk/zigbee2mqtt:1.10.0
     volumes:
       - ./zigbee2mqtt/data:/app/data
     devices:
