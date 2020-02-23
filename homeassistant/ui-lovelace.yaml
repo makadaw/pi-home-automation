@@ -5,8 +5,8 @@ master-bedroom-lights: &master-bedroom-lights
   entity: light.master_bedroom
   type: light
 
-hobby-room-lights: &hobby-room-lights
-  entity: light.hobby_room
+hobby-room-lights: &living-room-lights
+  entity: light.living_room
   type: light
 
 # Views configuration
@@ -19,17 +19,18 @@ views:
         title: Lights
         entities:
           - light.master_bedroom
-          - light.hobby_room
+          - light.living_room
       - entity: weather.home
         type: weather-forecast
   - path: master_bedroom
     icon: mdi:bed-king
+    title: Master Bedroom
     cards:
       - *master-bedroom-lights
   - path: hobby
     icon: mdi:desktop-mac
+    title: Hobby Room
     cards:
-      - *hobby-room-lights
       - type: vertical-stack
         cards:
         - type: horizontal-stack
@@ -51,8 +52,14 @@ views:
             name: Pressure
             graph: line
             unit: 'hPa'
+  - path: livinf_room
+    icon: mdi:sofa
+    title: Living Room
+    cards:
+      - *living-room-lights
   - path: system_state
     icon: mdi:settings
+    title: System Overview
     badges:
       - binary_sensor.updater
       - person.admin

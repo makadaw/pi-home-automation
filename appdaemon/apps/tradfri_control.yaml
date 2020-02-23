@@ -13,3 +13,20 @@ master_bedroom_lights_control:
     attribute: brightness
     step: 15
     
+living_room_lights_control:
+  module: tradfri_control
+  class: TradfriControl
+  
+  remote: sensor.tradfri_button_02_action 
+  lights: light.living_room
+
+  defaults:
+    brightness: 255
+    color_temp: 290
+
+  brightness:
+    attribute: brightness
+    step: 15
+
+  arrows: 
+    attribute: color_temp
