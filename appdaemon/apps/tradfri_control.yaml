@@ -8,6 +8,7 @@ master_bedroom_lights_control:
   defaults:
     brightness: 255
     color_temp: 290
+    xy_color: [0.453, 0.432]
 
   brightness:
     attribute: brightness
