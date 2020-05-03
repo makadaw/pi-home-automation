@@ -4,7 +4,7 @@ services:
 
   # MQTT brocker
   mqtt:
-    image: eclipse-mosquitto
+    image: eclipse-mosquitto:1.6
     container_name: mqtt
     restart: unless-stopped
     ports:
@@ -19,7 +19,7 @@ services:
   # Zigbee2MQTT
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.10.0
+    image: koenkk/zigbee2mqtt:1.13.0
     volumes:
       - ./zigbee2mqtt/data:/app/data
     devices:
@@ -37,7 +37,7 @@ services:
     container_name: appdaemon
     environment:
       EXTRA_CMD: -D INFO
-    image: appdaemon:4.0.1
+    image: appdaemon:4.0.3
     ports:
       # TODO use "127.0.0.1:5051:5051" for access only internaly
       - "5051:5051"
@@ -52,7 +52,7 @@ services:
  
   # Home assistant
   assistant:
-    image: homeassistant/raspberrypi3-homeassistant:0.104.3
+    image: homeassistant/raspberrypi3-homeassistant:0.109.3
     container_name: "hass"
     restart: unless-stopped
     # healthcheck:
