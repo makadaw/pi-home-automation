@@ -19,3 +19,5 @@
   friendly_name: xiaomi_aqara_th_1
   retain: true
   debounce: 1
+'0xec1bbdfffed500fd':
+  friendly_name: wallswitch_01

@@ -16,7 +16,7 @@ views:
     title: Main
     cards:
       - type: horizontal-stack
-        title: Lights
+        title: First floor
         cards:
           - type: entity-button
             entity: light.master_bedroom
@@ -27,8 +27,15 @@ views:
           - type: entity-button
             entity: light.tradfri_led_e27_color_600_01_light
             name: Alex's
+      - type: horizontal-stack
+        title: Ground floor
+        cards:
           - type: entity-button
             entity: light.living_room
+          - type: entity-button
+            entity: switch.0xec1bbdfffed500fd_switch 
+            icon: mdi:lightbulb
+            name: Hallway
       - type: horizontal-stack
         title: Scenes
         cards:
