@@ -21,3 +21,5 @@
   debounce: 1
 '0xec1bbdfffed500fd':
   friendly_name: wallswitch_01
+'0x588e81fffe58ea99':
+  friendly_name: tradfri_occ_sensor_01
