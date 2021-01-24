@@ -5,7 +5,8 @@ longitude: !secret homeassistant_longitude
 elevation: !secret homeassistant_elevation
 time_zone: !secret homeassistant_time_zone
 
-internal_url: !secret homeassistant_internal_url
+internal_url: !secret internal_url
+external_url: !secret external_url
 
 packages: !include_dir_named packages
 

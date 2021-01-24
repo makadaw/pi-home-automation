@@ -2,12 +2,14 @@
 # For extra security set this to only accept connections on localhost if NGINX is on the same machine
 # Update this line to be your domain
 # base_url: https://example.com
-base_url: !secret http_base_url
+#base_url: !secret http_base_url
 use_x_forwarded_for: true
 # You must set the trusted proxy IP address so that Home Assistant will properly accept connections
 # Set this to your NGINX machine IP, or localhost if hosted on the same machine.
 trusted_proxies: 
   - 127.0.0.1
+  - 172.17.0.1
+  - 172.17.0.2
   - ::1
 server_host: 0.0.0.0
 server_port: 8123
