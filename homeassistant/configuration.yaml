@@ -9,6 +9,10 @@ mqtt: !include conf/mqtt.yaml
 group: !include_dir_merge_named conf/groups
 light: !include conf/lights.yaml
 scene: !include conf/scenes.yaml
+input_boolean:
+  vacation_mode:
+    name: Vacation mode
+    icon: mdi:island
 python_script:
 
 # Text to speech

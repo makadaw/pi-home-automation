@@ -53,6 +53,8 @@ views:
               service: scene.turn_on
               service_data:
                 entity_id: scene.party
+          - type: entity-button
+            entity: input_boolean.vacation_mode
       - entity: weather.home
         type: weather-forecast
   - path: master_bedroom
