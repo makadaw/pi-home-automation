@@ -9,6 +9,11 @@ hobby-room-lights: &living-room-lights
   entity: light.living_room
   type: light
 
+garden-control: &garden-control
+  entity: switch.control_outlet_01
+  name: Garden Lights
+  type: button
+
 # Views configuration
 
 views:
@@ -33,7 +38,7 @@ views:
           - type: entity-button
             entity: light.living_room
           - type: entity-button
-            entity: switch.0xec1bbdfffed500fd_switch 
+            entity: switch.wallswitch_01_switch
             icon: mdi:lightbulb
             name: Hallway
       - type: horizontal-stack
@@ -92,16 +97,19 @@ views:
     title: Living Room
     cards:
       - *living-room-lights
+  - path: outdoor
+    icon: mdi:tree
+    title: Outdoor
+    badges:
+      - sun.sun
+    cards:
+      - *garden-control
   - path: system_state
     icon: mdi:settings
     title: System Overview
     badges:
       - binary_sensor.updater
       - person.admin
-      - sensor.tradfri_button_01_action
-      - sensor.tradfri_button_01_battery
-      - sensor.tradfri_button_01_linkquality
-      - sensor.tradfri_led_e27_white_1000_01_linkquality
       - sun.sun
     cards:
       - type: entities
