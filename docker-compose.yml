@@ -4,7 +4,7 @@ services:
 
   # MQTT brocker
   mqtt:
-    image: eclipse-mosquitto:1.6
+    image: eclipse-mosquitto:2.0.12
     container_name: mqtt
     restart: unless-stopped
     ports:
@@ -19,7 +19,7 @@ services:
   # Zigbee2MQTT
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.17.0
+    image: koenkk/zigbee2mqtt:1.21.1
     ports:
       - 8080:8080
     volumes:
@@ -55,7 +55,7 @@ services:
  
   # Home assistant
   assistant:
-    image: homeassistant/raspberrypi3-homeassistant:2021.1.5
+    image: homeassistant/raspberrypi4-homeassistant:2021.9.7
     container_name: "hass"
     restart: unless-stopped
     # healthcheck:
@@ -64,6 +64,7 @@ services:
     #   timeout: 10s
     #   retries: 6
     network_mode: host
+    privileged: true
     ports:
       - 8123:8123
       - 8943:8943
