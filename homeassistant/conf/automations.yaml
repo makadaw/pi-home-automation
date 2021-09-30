@@ -6,7 +6,6 @@
     service: switch.turn_off
     entity_id: switch.control_outlet_01
 
-
 - alias: Switch Garden lights on at Sunset
   description: Garden lights control
   use_blueprint:
