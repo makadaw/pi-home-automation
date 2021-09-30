@@ -103,6 +103,7 @@ views:
         name: Garden Lights
         type: button
       - entity: light.tradfri_let_e27_806_01
+        name: Porch lights
         type: light
   - path: system_state
     icon: mdi:settings
