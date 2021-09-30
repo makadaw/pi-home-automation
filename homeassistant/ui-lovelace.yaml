@@ -58,6 +58,7 @@ views:
             entity: input_boolean.vacation_mode
       - entity: weather.home
         type: weather-forecast
+      - type: 'custom:sun-card'
   - path: master_bedroom
     icon: mdi:bed-king
     title: Master Bedroom
@@ -99,12 +100,15 @@ views:
     badges:
       - sun.sun
     cards:
-      - entity: switch.control_outlet_01
-        name: Garden Lights
-        type: button
-      - entity: light.tradfri_let_e27_806_01
-        name: Porch lights
-        type: light
+      - type: vertical-stack
+        cards:
+          - type: 'custom:sun-card'
+          - entity: switch.control_outlet_01
+            name: Garden Lights
+            type: button
+          - entity: light.tradfri_let_e27_806_01
+            name: Porch lights
+            type: light
   - path: system_state
     icon: mdi:settings
     title: System Overview
@@ -121,3 +125,6 @@ views:
           - entity: sensor.zigbee2mqtt_version
           - entity: sensor.zigbee2mqtt_coordinator_version
 
+resources:
+  - url: /local/community/home-assistant-sun-card.js
+    type: module 
