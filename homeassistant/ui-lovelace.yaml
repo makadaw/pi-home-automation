@@ -9,14 +9,6 @@ hobby-room-lights: &living-room-lights
   entity: light.living_room
   type: light
 
-garden-control: &garden-control
-  entity: switch.control_outlet_01
-  name: Garden Lights
-  type: button
-
-porch-lights: &porch-lights
-  entity: light.tradfri_let_e27_806_01
-  type: light
 
 # Views configuration
 
@@ -107,8 +99,11 @@ views:
     badges:
       - sun.sun
     cards:
-      - *garden-control
-      - *porch-lights
+      - entity: switch.control_outlet_01
+        name: Garden Lights
+        type: button
+      - entity: light.tradfri_let_e27_806_01
+        type: light
   - path: system_state
     icon: mdi:settings
     title: System Overview
