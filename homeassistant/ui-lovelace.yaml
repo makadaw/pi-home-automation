@@ -14,6 +14,10 @@ garden-control: &garden-control
   name: Garden Lights
   type: button
 
+porch-lights: &porch-lights
+  entity: light.tradfri_let_e27_806_01
+  type: light
+
 # Views configuration
 
 views:
@@ -104,6 +108,7 @@ views:
       - sun.sun
     cards:
       - *garden-control
+      - *porch-lights
   - path: system_state
     icon: mdi:settings
     title: System Overview

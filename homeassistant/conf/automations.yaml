@@ -1,5 +1,13 @@
-- id: '1632942235784'
-  alias: Switch On At Sunset
+- alias: Outside Lights off at 12pm midnight
+  trigger:
+    platform: time
+    at: '23:59:00'
+  action:
+    service: switch.turn_off
+    entity_id: switch.control_outlet_01
+
+
+- alias: Switch Garden lights on at Sunset
   description: Garden lights control
   use_blueprint:
     path: Knuspel/switches_on_at_sunset.yaml
@@ -8,10 +16,14 @@
         entity_id: switch.control_outlet_01
       elevation_shift: -3
 
-- alias: Outside Lights off at 12pm midnight
-  trigger:
-    platform: time
-    at: "23:59:00"
-  action:
-    service: switch.turn_off
-    entity_id: switch.control_outlet_01
+- alias: Porch lights
+  description: ''
+  use_blueprint:
+    path: local/motion_sun_light.yaml
+    input:
+      motion_entity: binary_sensor.tradfri_occ_sensor_01_occupancy
+      elevation_shift: -3
+      target_light:
+        entity_id: light.tradfri_let_e27_806_01
+      target_brightness: 100
+      until_time: 00:00:00
