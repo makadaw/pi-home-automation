@@ -27,3 +27,6 @@
   friendly_name: control_outlet_01
 '0x5c0272fffe9b969d':
   friendly_name: tradfri_let_e27_806_01
+'0xcc86ecfffe9f45a4':
+  friendly_name: tradfri_button_03
+  legacy: false

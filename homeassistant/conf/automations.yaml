@@ -26,3 +26,34 @@
         entity_id: light.tradfri_let_e27_806_01
       target_brightness: 100
       until_time: 00:00:00
+
+- alias: Porch light button control
+  description: 'Control porch light with button'
+  variables:
+    entities:
+      - light.tradfri_let_e27_806_01
+  trigger:
+    - entity_id: sensor.tradfri_button_03_action
+      platform: state
+      to: 'on'
+    - entity_id: sensor.tradfri_button_03_action
+      platform: state
+      to: 'off'
+  condition: []
+  action:
+    - choose:
+      - conditions:
+          - condition: template
+            value_template: '{{ trigger.to_state.state == ''on'' }}'
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: "{{ entities }}"
+      - conditions:
+          - condition: template
+            value_template: '{{ trigger.to_state.state == ''off'' }}'
+        sequence:
+          - service: light.turn_off
+            target:
+              entity_id: "{{ entities }}"
+
