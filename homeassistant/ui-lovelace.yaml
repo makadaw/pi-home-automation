@@ -124,7 +124,24 @@ views:
           - entity: sensor.zigbee2mqtt_bridge_state
           - entity: sensor.zigbee2mqtt_version
           - entity: sensor.zigbee2mqtt_coordinator_version
+      - type: vertical-stack
+        title: Batteries state
+        cards:
+          - type: entities
+            entities:
+              - type: custom:battery-entity
+                entity: sensor.tradfri_button_01_battery
+              - type: custom:battery-entity
+                entity: sensor.tradfri_button_02_battery
+              - type: custom:battery-entity
+                entity: sensor.tradfri_button_03_battery
+              - type: custom:battery-entity
+                entity: sensor.tradfri_occ_sensor_01_battery
+              - type: custom:battery-entity
+                entity: sensor.xiaomi_aqara_th_1_battery
 
 resources:
   - url: /local/community/home-assistant-sun-card.js
     type: module 
+  - url: /local/community/battery-entity.js?v=0.2
+    type: module
