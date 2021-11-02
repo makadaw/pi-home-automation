@@ -85,10 +85,17 @@ trigger:
   to: "on"
 
 condition:
-  - condition: numeric_state
-    entity_id: sun.sun
-    attribute: elevation
-    below: !input elevation_shift
+  - condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        attribute: elevation
+        below: !input elevation_shift
+      - condition: time
+        # Use input time
+        before: '00:00:00'
+      - condition: time
+        after: '18:00:00'
 
 action:
   - service: light.turn_on
