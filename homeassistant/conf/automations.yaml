@@ -20,11 +20,11 @@
   use_blueprint:
     path: local/motion_sun_light.yaml
     input:
-      motion_entity: binary_sensor.tradfri_occ_sensor_01_occupancy
+      motion_entity: binary_sensor.hue_occ_sensor_01_occupancy
       elevation_shift: -3
       target_light:
         entity_id: light.tradfri_let_e27_806_01
-      target_brightness: 100
+      target_brightness: 85
       until_time: 00:00:00
 
 - alias: Porch light button control
