@@ -1,9 +1,6 @@
 title: Vlinder wooning
 
 # Anchors
-master-bedroom-lights: &master-bedroom-lights
-  entity: light.master_bedroom
-  type: light
 
 hobby-room-lights: &living-room-lights
   entity: light.living_room
@@ -16,46 +13,60 @@ views:
   - path: default_view 
     title: Main
     cards:
-      - type: horizontal-stack
-        title: First floor
+      - type: vertical-stack
+        title: Lights master
         cards:
-          - type: entity-button
-            entity: light.master_bedroom
-            name: Bedroom
-          - type: entity-button
-            entity: light.tradfri_led_e27_color_600_02_light
-            name: Kate's
-          - type: entity-button
-            entity: light.tradfri_led_e27_color_600_01_light
-            name: Alex's
-      - type: horizontal-stack
-        title: Ground floor
-        cards:
-          - type: entity-button
-            entity: light.living_room
-          - type: entity-button
-            entity: switch.wallswitch_01_switch
-            icon: mdi:lightbulb
-            name: Hallway
-      - type: horizontal-stack
-        title: Scenes
-        cards:
-          - type: entity-button
-            entity: scene.romantic
-            tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.romantic
-          - type: entity-button
-            entity: scene.party
-            tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.party
-          - type: entity-button
-            entity: input_boolean.vacation_mode
+        - type: glance
+          title: First floor
+          entities:
+            - entity: light.master_bedroom
+              name: Master
+              tap_action:
+                action: toggle
+            - entity: light.tradfri_led_e27_color_600_01_light
+              name: Alex's
+              tap_action:
+                action: toggle
+            - entity: light.tradfri_led_e27_color_600_02_light
+              name: Kate's
+              tap_action:
+                action: toggle
+            - entity: light.living_room
+              name: Living Room
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+        - type: glance
+          title: Ground floor
+          entities:
+            - entity: light.tradfri_let_e27_806_01
+              name: Porch lights
+              tap_action:
+                action: toggle
+            - entity: switch.control_outlet_01
+              name: Garden light
+              icon: mdi:lightbulb
+              tap_action:
+                action: toggle
+      #- type: horizontal-stack
+      #  title: Scenes
+      #  cards:
+      #    - type: entity-button
+      #      entity: scene.romantic
+      #      tap_action:
+      #        action: call-service
+      #        service: scene.turn_on
+      #        service_data:
+      #          entity_id: scene.romantic
+      #    - type: entity-button
+      #      entity: scene.party
+      #      tap_action:
+      #        action: call-service
+      #        service: scene.turn_on
+      #        service_data:
+      #          entity_id: scene.party
+      #    - type: entity-button
+      #      entity: input_boolean.vacation_mode
       - type: vertical-stack
         title: Outside
         cards:
@@ -69,7 +80,17 @@ views:
     icon: mdi:bed-king
     title: Master Bedroom
     cards:
-      - *master-bedroom-lights
+      - type: vertical-stack
+        cards:
+          - type: light 
+            entity: light.master_bedroom
+            name: Bedroom
+          - type: light
+            entity: light.tradfri_led_e27_color_600_02_light
+            name: Kate's
+          - type: light
+            entity: light.tradfri_led_e27_color_600_01_light
+            name: Alex's
   - path: hobby
     icon: mdi:desktop-mac
     title: Hobby Room
