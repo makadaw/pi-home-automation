@@ -30,3 +30,5 @@
 '0xcc86ecfffe9f45a4':
   friendly_name: tradfri_button_03
   legacy: false
+'0x00178801064973d4':
+  friendly_name: hue_occ_sensor_01
