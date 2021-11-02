@@ -56,9 +56,15 @@ views:
                 entity_id: scene.party
           - type: entity-button
             entity: input_boolean.vacation_mode
-      - entity: weather.home
-        type: weather-forecast
-      - type: 'custom:sun-card'
+      - type: vertical-stack
+        title: Outside
+        cards:
+          - type: sensor
+            name: Reality
+            entity: sensor.hue_occ_sensor_01_temperature
+          - type: weather-forecast
+            entity: weather.home
+          - type: 'custom:sun-card'
   - path: master_bedroom
     icon: mdi:bed-king
     title: Master Bedroom
@@ -110,7 +116,7 @@ views:
             name: Porch lights
             type: light
   - path: system_state
-    icon: mdi:settings
+    icon: mdi:wrench
     title: System Overview
     badges:
       - binary_sensor.updater
@@ -139,6 +145,8 @@ views:
                 entity: sensor.tradfri_occ_sensor_01_battery
               - type: custom:battery-entity
                 entity: sensor.xiaomi_aqara_th_1_battery
+              - type: custom:battery-entity
+                entity: sensor.hue_occ_sensor_01_battery
 
 resources:
   - url: /local/community/home-assistant-sun-card.js
