@@ -168,6 +168,8 @@ views:
                 entity: sensor.xiaomi_aqara_th_1_battery
               - type: custom:battery-entity
                 entity: sensor.hue_occ_sensor_01_battery
+              - type: custom:battery-entity
+                entity: sensor.hue_wall_switch_01_battery
 
 resources:
   - url: /local/community/home-assistant-sun-card.js
