@@ -1,4 +1,4 @@
-- alias: Outside Lights off at 12pm midnight
+- alias: Garden Lights off at 12pm midnight
   trigger:
     platform: time
     at: '23:59:00'
@@ -21,7 +21,7 @@
     path: local/motion_sun_light.yaml
     input:
       motion_entity: binary_sensor.hue_occ_sensor_01_occupancy
-      elevation_shift: -3
+      elevation_shift: -2
       target_light:
         entity_id: light.tradfri_let_e27_806_01
       target_brightness: 85
