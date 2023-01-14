@@ -1,30 +1,22 @@
-# Home Assistant integration (MQTT discovery)
 homeassistant: true
-# allow new devices to join, keep is false
 permit_join: false
-
 # MQTT settings
 mqtt:
   base_topic: zigbee2mqtt
-  server: 'mqtt://mqtt:1883'
+  server: mqtt://mqtt:1883
   user: '!secret user'
   password: '!secret password'
   client_id: Z2M HUB
-
 # Connection to stick
 serial:
   port: /dev/ttyACM0
   disable_led: true
-
 advanced:
   network_key: '!secret network_key'
-  last_seen: 'ISO_8601'
+  last_seen: ISO_8601
   elapsed: false
-
 # Run node map and config
 frontend:
   port: 8080
-
 devices: devices.yaml
 groups: groups.yaml
-

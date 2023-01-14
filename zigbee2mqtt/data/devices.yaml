@@ -34,3 +34,5 @@
   friendly_name: hue_occ_sensor_01
 '0x84ba20fffe320145':
   friendly_name: tradfri_button_04
+'0x001788010b015e78':
+  friendly_name: hue_wall_switch_01
