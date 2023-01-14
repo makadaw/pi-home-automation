@@ -53,7 +53,7 @@ services:
  
   # Home assistant
   assistant:
-    image: homeassistant/raspberrypi4-homeassistant:2021.9.7
+    image: homeassistant/raspberrypi4-homeassistant:2023.1.2
     container_name: "hass"
     restart: unless-stopped
     # healthcheck:

@@ -1,15 +1,3 @@
-
-# Zigbee Groups are not autodiscoverable right now
-- platform: mqtt
-  name: "Master Bedroom"
-  availability_topic: "zigbee2mqtt/bridge/state"
-  command_topic: "zigbee2mqtt/bedroom_lights/set"
-  state_topic: "zigbee2mqtt/bedroom_lights"
-  brightness: true
-  xy: true
-  retain: true
-  schema: "json"
-
 - platform: group
   name: "Living Room"
   entities:

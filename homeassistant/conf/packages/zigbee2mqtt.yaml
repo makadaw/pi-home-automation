@@ -1,18 +1,26 @@
-sensor:
-  # Sensor for monitoring the bridge state
-  - platform: mqtt
-    name: Zigbee2mqtt Bridge state
-    state_topic: "zigbee2mqtt/bridge/state"
-    icon: mdi:router-wireless
-  # Sensor for Showing the Zigbee2mqtt Version
-  - platform: mqtt
-    name: Zigbee2mqtt Version
-    state_topic: "zigbee2mqtt/bridge/config"
-    value_template: "{{ value_json.version }}"
-    icon: mdi:zigbee
-  # Sensor for Showing the Coordinator Version
-  - platform: mqtt
-    name: Zigbee2mqtt Coordinator Version
-    state_topic: "zigbee2mqtt/bridge/config"
-    value_template: "{{ value_json.coordinator }}"
-    icon: mdi:chip
+mqtt:
+  light:
+    - name: "Master Bedroom"
+      availability_topic: "zigbee2mqtt/bridge/state"
+      command_topic: "zigbee2mqtt/bedroom_lights/set"
+      state_topic: "zigbee2mqtt/bedroom_lights"
+      brightness: true
+      xy: true
+      retain: true
+      schema: "json"
+
+  sensor:
+    # Sensor for monitoring the bridge state
+    - name: Zigbee2mqtt Bridge state
+      state_topic: "zigbee2mqtt/bridge/state"
+      icon: mdi:router-wireless
+    # Sensor for Showing the Zigbee2mqtt Version
+    - name: Zigbee2mqtt Version
+      state_topic: "zigbee2mqtt/bridge/config"
+      value_template: "{{ value_json.version }}"
+      icon: mdi:zigbee
+    # Sensor for Showing the Coordinator Version
+    - name: Zigbee2mqtt Coordinator Version
+      state_topic: "zigbee2mqtt/bridge/config"
+      value_template: "{{ value_json.coordinator }}"
+      icon: mdi:chip

@@ -4,6 +4,7 @@ latitude: !secret homeassistant_latitude
 longitude: !secret homeassistant_longitude
 elevation: !secret homeassistant_elevation
 time_zone: !secret homeassistant_time_zone
+country: !secret homeassistant_country
 
 internal_url: !secret internal_url
 external_url: !secret external_url
