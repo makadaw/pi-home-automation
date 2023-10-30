@@ -92,7 +92,7 @@ views:
             entity: light.tradfri_led_e27_color_600_01_light
             name: Alex's
   - path: hobby
-    icon: mdi:desktop-mac
+    icon: mdi:monitor
     title: Hobby Room
     cards:
       - type: vertical-stack
