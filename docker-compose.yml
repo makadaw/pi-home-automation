@@ -19,7 +19,7 @@ services:
   # Zigbee2MQTT
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.32.0
+    image: koenkk/zigbee2mqtt:1.32.2
     ports:
       - 8080:8080
     volumes:
@@ -52,7 +52,7 @@ services:
  
   # Home assistant
   assistant:
-    image: homeassistant/raspberrypi4-homeassistant:2023.1.2
+    image: ghcr.io/home-assistant/home-assistant:2023.10
     container_name: "hass"
     restart: unless-stopped
     # healthcheck:
