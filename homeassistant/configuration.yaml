@@ -5,11 +5,12 @@ default_config:
 http: !include conf/http.yaml
 
 # Integrations
-mqtt: !include conf/mqtt.yaml
 group: !include_dir_merge_named conf/groups
 light: !include conf/lights.yaml
 scene: !include conf/scenes.yaml
 automation: !include conf/automations.yaml
+# MQTT should be setup throw GUI now
+#mqtt: !include conf/mqtt.yaml
 input_boolean:
   vacation_mode:
     name: Vacation mode
