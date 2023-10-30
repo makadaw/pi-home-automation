@@ -8,6 +8,9 @@
 '0xccccccfffe9e8300':
   friendly_name: tradfri_led_e27_color_600_01
   retain: true
+  homeassistant:
+    name: tradfri_led_e27_color_600_01
+  optimistic: true
 '0xccccccfffe90e011':
   friendly_name: tradfri_led_e27_color_600_02
   retain: true
