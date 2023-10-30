@@ -1,13 +1,11 @@
 homeassistant: true
 permit_join: false
-# MQTT settings
 mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://mqtt:1883
   user: '!secret user'
   password: '!secret password'
   client_id: Z2M HUB
-# Connection to stick
 serial:
   port: /dev/ttyACM0
   disable_led: true
@@ -15,7 +13,7 @@ advanced:
   network_key: '!secret network_key'
   last_seen: ISO_8601
   elapsed: false
-# Run node map and config
+  log_level: warn
 frontend:
   port: 8080
 devices: devices.yaml
