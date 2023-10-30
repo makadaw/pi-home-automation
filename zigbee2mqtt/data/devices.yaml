@@ -1,7 +1,3 @@
-'0x000d6ffffe4a6aaa':
-  friendly_name: tradfri_button_01
-  retain: true
-  qos: 1
 '0xec1bbdfffea8561f':
   friendly_name: tradfri_button_02
   retain: true
