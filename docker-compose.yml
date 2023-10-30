@@ -19,7 +19,7 @@ services:
   # Zigbee2MQTT
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.21.2
+    image: koenkk/zigbee2mqtt:1.33.1
     ports:
       - 8080:8080
     volumes:
@@ -37,14 +37,13 @@ services:
   appdaemon:
     container_name: appdaemon
     environment:
-      EXTRA_CMD: -D INFO
+      - "EXTRA_CMD=-D INFO"
+      - "TZ=Europe/Amsterdam"
     image: appdaemon:4.0.4
     ports:
       # TODO use "127.0.0.1:5051:5051" for access only internaly
       - "5051:5051"
     restart: unless-stopped
-    environment:
-      - "TZ=Europe/Amsterdam"
     depends_on:
       - assistant
     volumes:
