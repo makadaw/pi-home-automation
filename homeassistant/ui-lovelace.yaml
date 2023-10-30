@@ -171,8 +171,3 @@ views:
               - type: custom:battery-entity
                 entity: sensor.hue_wall_switch_01_battery
 
-resources:
-  - url: /local/community/home-assistant-sun-card.js
-    type: module 
-  - url: /local/community/battery-entity.js?v=0.2
-    type: module

@@ -23,4 +23,9 @@ tts:
 
 # Interface
 lovelace:
+  resources:
+    - url: /local/community/home-assistant-sun-card.js
+      type: module 
+    - url: /local/community/battery-entity.js?v=0.2
+      type: module
   mode: yaml
