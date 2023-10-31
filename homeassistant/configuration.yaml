@@ -22,6 +22,9 @@ tts:
   - platform: google_translate
 
 # Interface
+frontend:
+  themes: !include_dir_merge_named conf/themes
+
 lovelace:
   resources:
     - url: /local/community/home-assistant-sun-card.js
