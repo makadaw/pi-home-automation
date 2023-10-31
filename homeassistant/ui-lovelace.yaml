@@ -116,6 +116,15 @@ views:
             name: Pressure
             graph: line
             unit: 'hPa'
+        - type: horizontal-stack
+          cards:
+          - type: entity
+            entity: binary_sensor.tradfri_occ_sensor_01_occupancy
+            name: Room Occupancy
+          - type: button
+            entity: switch.askvader_switch_01
+            name: Table lamp breaker
+
   - path: livinf_room
     icon: mdi:sofa
     title: Living Room

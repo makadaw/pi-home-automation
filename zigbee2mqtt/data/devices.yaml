@@ -2,6 +2,7 @@
   friendly_name: tradfri_button_02
   retain: true
   qos: 1
+  legacy: true
 '0x000d6ffffe12afe4':
   friendly_name: tradfri_led_e27_white_1000_01
   retain: true
@@ -35,3 +36,5 @@
   friendly_name: tradfri_button_04
 '0x001788010b015e78':
   friendly_name: hue_wall_switch_01
+'0x84ba20fffef2e9ec':
+  friendly_name: askvader_switch_01

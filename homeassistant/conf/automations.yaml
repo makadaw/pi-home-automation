@@ -86,7 +86,22 @@
           - service: light.turn_off
             target:
               entity_id: "{{ entities }}"
- 
+
+- alias: Study room table lamp control
+  description: 'Turn on table lamp if occupancy sensor see noone'
+  trigger:
+    - platform: state 
+      entity_id: binary_sensor.tradfri_occ_sensor_01_occupancy
+      to: 'on' 
+    - platform: state 
+      entity_id: binary_sensor.tradfri_occ_sensor_01_occupancy
+      to: 'off'
+      for:
+        seconds: 30 
+  action:
+    service: "switch.turn_{{ trigger.to_state.state }}"
+    entity_id: switch.askvader_switch_01
+
 - alias: Bedroom wall witch
   description: 'Control bedroom lights with a wall switch'
   variables:
