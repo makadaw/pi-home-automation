@@ -2,3 +2,10 @@
   name: "Living Room"
   entities:
     - light.tradfri_led_e27_white_1000_01_light
+
+- platform: group
+  name: "Master bedroom"
+  unique_id: "master_bedroom"
+  entities:
+    - light.tradfri_led_e27_color_600_01_light
+    - light.tradfri_led_e27_color_600_02_light

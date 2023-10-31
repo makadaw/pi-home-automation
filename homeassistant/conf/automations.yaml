@@ -91,7 +91,7 @@
   description: 'Control bedroom lights with a wall switch'
   variables:
     entities:
-      - light.bedroom_lights
+      - light.master_bedroom
   trigger:
     - entity_id: sensor.hue_wall_switch_01_action
       platform: state
@@ -100,4 +100,21 @@
     service: light.toggle
     target:
       entity_id: "{{ entities }}"
+
+- alias: "Bedroom 5 buttons switch"
+  description: "Tradfri 5 buttons switch in the master bedroom"
+  use_blueprint:
+    path: local/mqtt-ikea-five-button-remote.yaml
+    input:
+      remote: sensor.tradfri_button_02_action
+      light: 
+        entity_id: light.master_bedroom
+      button_left_short:
+        - service: light.toggle
+          target:
+            entity_id: light.tradfri_led_e27_color_600_02_light
+      button_right_short:
+        - service: light.toggle
+          target:
+            entity_id: light.tradfri_led_e27_color_600_01_light
 
