@@ -15,6 +15,10 @@ services:
       - ./mosquitto/mosquitto.passwd:/etc/mosquitto/mosquitto.passwd
       - ./mosquitto/data:/mosquitto/data/
       - ./mosquitto/log:/mosquitto/log/
+    logging:
+      driver: local
+      options:
+        max-file: 5
   
   # Zigbee2MQTT
   zigbee2mqtt:
@@ -32,23 +36,27 @@ services:
       - "TZ=Europe/Amsterdam"
     depends_on:
       - mqtt
+    logging:
+      driver: local
+      options:
+        max-file: 5
 
   # App Daemon
-  appdaemon:
-    container_name: appdaemon
-    environment:
-      - "EXTRA_CMD=-D INFO"
-      - "TZ=Europe/Amsterdam"
-    image: appdaemon:4.0.4
-    ports:
-      # TODO use "127.0.0.1:5051:5051" for access only internaly
-      - "5051:5051"
-    restart: unless-stopped
-    depends_on:
-      - assistant
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ./appdaemon:/conf
+  #appdaemon:
+  #  container_name: appdaemon
+  #  environment:
+  #    - "EXTRA_CMD=-D INFO"
+  #    - "TZ=Europe/Amsterdam"
+  #  image: appdaemon:4.0.4
+  #  ports:
+  #    # TODO use "127.0.0.1:5051:5051" for access only internaly
+  #    - "5051:5051"
+  #  restart: unless-stopped
+  #  depends_on:
+  #    - assistant
+  #  volumes:
+  #    - /etc/localtime:/etc/localtime:ro
+  #    - ./appdaemon:/conf
  
   # Home assistant
   assistant:
@@ -67,4 +75,10 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     depends_on:
+      - zigbee2mqtt
       - mqtt
+    logging:
+      driver: local
+      options:
+        max-file: 20
+
