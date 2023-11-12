@@ -4,7 +4,7 @@ services:
 
   # MQTT brocker
   mqtt:
-    image: eclipse-mosquitto:2.0.12
+    image: eclipse-mosquitto:2.0.18
     container_name: mqtt
     restart: unless-stopped
     ports:
